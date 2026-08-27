@@ -1,0 +1,31 @@
+services:
+  sim_plant:
+    build:
+      context: .
+      dockerfile: docker/sim_plant.Dockerfile
+    env_file:
+      - .env
+    environment:
+      SIM_PLANT_EMIT_HOST: 0.0.0.0
+      SIM_PLANT_EMIT_PORT: 8100
+    ports:
+      - "8100:8100"
+    volumes:
+      - ./configs:/app/configs:ro
+
+  shadowline:
+    build:
+      context: .
+      dockerfile: docker/shadowline.Dockerfile
+    env_file:
+      - .env
+    environment:
+      SHADOWLINE_API_HOST: 0.0.0.0
+      SHADOWLINE_API_PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./configs:/app/configs:ro
+      - ./data:/app/data
+    depends_on:
+      - sim_plant
