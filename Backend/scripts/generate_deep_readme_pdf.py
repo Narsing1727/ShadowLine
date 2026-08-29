@@ -58,7 +58,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontName='Helvetica-Bold',
         fontSize=7.5,
         leading=9,
-        textColor=colors.HexColor('#A000FF'),
+        textColor=colors.HexColor('#000000'),
         spaceAfter=5,
     )
 
@@ -80,7 +80,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontName='Helvetica-Bold',
         fontSize=9.2,
         leading=12.5,
-        textColor=colors.HexColor('#A000FF'),
+        textColor=colors.HexColor('#000000'),
         spaceBefore=7,
         spaceAfter=3,
         keepWithNext=True,
@@ -91,7 +91,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontName='Helvetica',
         fontSize=7.8,
         leading=11.2,
-        textColor=colors.HexColor('#A000FF'),
+        textColor=colors.HexColor('#000000'),
         spaceAfter=4.5,
         alignment=4,  # Justified
     )
@@ -121,7 +121,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontName='Helvetica-Bold',
         fontSize=7.2,
         leading=9,
-        textColor=colors.HexColor('#000000'),
+        textColor=colors.HexColor('#FFFFFF'),
     )
 
     table_cell = ParagraphStyle(
@@ -129,7 +129,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontName='Helvetica',
         fontSize=6.8,
         leading=9,
-        textColor=colors.HexColor('#A000FF'),
+        textColor=colors.HexColor('#000000'),
     )
 
     table_cell_bold = ParagraphStyle(
@@ -137,9 +137,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontName='Helvetica-Bold',
         fontSize=6.8,
         leading=9,
-        textColor=colors.HexColor('#FFFFFF'),
-        backColor=colors.HexColor('#A000FF'),
-        borderPadding=(6, 10, 6, 10),
+        textColor=colors.HexColor('#000000'),
     )
 
     story = []

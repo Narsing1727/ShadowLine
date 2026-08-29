@@ -58,7 +58,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontName='Helvetica-Bold',
         fontSize=7.5,
         leading=9,
-        textColor=colors.HexColor('#A000FF'),
+        textColor=colors.HexColor('#FFFFFF'),
         spaceAfter=6,
     )
 
@@ -80,7 +80,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontName='Helvetica-Bold',
         fontSize=9.5,
         leading=13,
-        textColor=colors.HexColor('#A000FF'),
+        textColor=colors.HexColor('#000000'),
         spaceBefore=8,
         spaceAfter=3,
         keepWithNext=True,
@@ -91,7 +91,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontName='Helvetica',
         fontSize=8,
         leading=11.5,
-        textColor=colors.HexColor('#A000FF'),
+        textColor=colors.HexColor('#000000'),
         spaceAfter=5,
         alignment=4,  # Justified
     )
@@ -121,7 +121,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontName='Helvetica-Bold',
         fontSize=7.5,
         leading=9.5,
-        textColor=colors.HexColor('#000000'),
+        textColor=colors.HexColor('#FFFFFF'),
     )
 
     table_cell = ParagraphStyle(
@@ -129,7 +129,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontName='Helvetica',
         fontSize=7.2,
         leading=9.5,
-        textColor=colors.HexColor('#A000FF'),
+        textColor=colors.HexColor('#000000'),
     )
 
     table_cell_bold = ParagraphStyle(
@@ -137,9 +137,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontName='Helvetica-Bold',
         fontSize=7.2,
         leading=9.5,
-        textColor=colors.HexColor('#FFFFFF'),
-        backColor=colors.HexColor('#A000FF'),
-        borderPadding=(6, 10, 6, 10),
+        textColor=colors.HexColor('#000000'),
     )
 
     story = []
