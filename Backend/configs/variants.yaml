@@ -1,0 +1,72 @@
+variants:
+  - id: SUV_A
+    name: "Midsize SUV (Model Alpha)"
+    production_share: 0.50
+    cycle_time_multiplier: 1.05
+    defect_baselines:
+      - defect_code: D-WELD-01
+        causing_station_id: S-03
+        detecting_station_id: S-11
+        base_probability: 0.015
+        lag_minutes_mean: 18.0
+        lag_minutes_std: 3.0
+      - defect_code: D-PAINT-02
+        causing_station_id: S-14
+        detecting_station_id: S-23
+        base_probability: 0.020
+        lag_minutes_mean: 35.0
+        lag_minutes_std: 5.0
+      - defect_code: D-TORQ-03
+        causing_station_id: S-33
+        detecting_station_id: S-42
+        base_probability: 0.010
+        lag_minutes_mean: 25.0
+        lag_minutes_std: 4.0
+
+  - id: SEDAN_B
+    name: "Compact Sedan (Model Beta)"
+    production_share: 0.30
+    cycle_time_multiplier: 0.95
+    defect_baselines:
+      - defect_code: D-WELD-01
+        causing_station_id: S-03
+        detecting_station_id: S-11
+        base_probability: 0.010
+        lag_minutes_mean: 16.0
+        lag_minutes_std: 2.5
+      - defect_code: D-PAINT-02
+        causing_station_id: S-14
+        detecting_station_id: S-23
+        base_probability: 0.012
+        lag_minutes_mean: 32.0
+        lag_minutes_std: 4.0
+      - defect_code: D-ELEC-04
+        causing_station_id: S-29
+        detecting_station_id: S-40
+        base_probability: 0.018
+        lag_minutes_mean: 28.0
+        lag_minutes_std: 3.5
+
+  - id: EV_C
+    name: "Electric Crossover (Model Gamma)"
+    production_share: 0.20
+    cycle_time_multiplier: 1.10
+    defect_baselines:
+      - defect_code: D-BAT-05
+        causing_station_id: S-34
+        detecting_station_id: S-42
+        base_probability: 0.025
+        lag_minutes_mean: 22.0
+        lag_minutes_std: 3.0
+      - defect_code: D-WELD-01
+        causing_station_id: S-05
+        detecting_station_id: S-11
+        base_probability: 0.018
+        lag_minutes_mean: 15.0
+        lag_minutes_std: 2.0
+      - defect_code: D-ALIGN-06
+        causing_station_id: S-41
+        detecting_station_id: S-42
+        base_probability: 0.015
+        lag_minutes_mean: 8.0
+        lag_minutes_std: 1.5

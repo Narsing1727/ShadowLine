@@ -1,0 +1,29 @@
+faults:
+  - id: FAULT-DRIFT-S14
+    name: "E-Coat Anode Voltage Process Drift"
+    station_id: S-14
+    type: gradual_drift
+    start_time_minutes: 45.0
+    duration_minutes: 90.0
+    drift_parameter: cycle_time_and_defect
+    cycle_time_increase_pct: 0.18
+    defect_probability_multiplier: 4.5
+    associated_defect_code: D-PAINT-02
+
+  - id: FAULT-SUDDEN-S29
+    name: "Cockpit Marriage Robot Hydraulic Pressure Drop"
+    station_id: S-29
+    type: sudden_failure
+    start_time_minutes: 120.0
+    duration_minutes: 12.0
+
+  - id: FAULT-INTERMITTENT-S05
+    name: "Spot Welder 2 Weld Tip Alignment Sensor Chatter"
+    station_id: S-05
+    type: intermittent
+    start_time_minutes: 180.0
+    duration_minutes: 60.0
+    flicker_interval_seconds: 45.0
+    down_duration_seconds: 20.0
+    defect_probability_multiplier: 3.0
+    associated_defect_code: D-WELD-01

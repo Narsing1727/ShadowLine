@@ -1,0 +1,151 @@
+line_id: plant5_line_c
+name: "Plant 5 - Pilot Line C"
+takt_time_seconds: 60.0
+target_jph: 60.0
+shifts_per_day: 1
+hours_per_shift: 8.0
+
+zones:
+  - id: BODY_SHOP
+    name: "Body Framing"
+  - id: PAINT_SHOP
+    name: "Paint Line"
+  - id: FINAL_ASSEMBLY
+    name: "General Assembly"
+
+stations:
+  - id: S-01
+    name: "Base Structure Prep"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-02
+    name: "Frame Spot Welding"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 57.0
+  - id: S-03
+    name: "Body Panel Fitment"
+    zone: BODY_SHOP
+    confidence_tier: INFERRED
+    nominal_cycle_time: 54.0
+  - id: S-04
+    name: "Manual Roof Welding"
+    zone: BODY_SHOP
+    confidence_tier: DARK
+    nominal_cycle_time: 52.0
+  - id: S-05
+    name: "Body Dimension Check"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 50.0
+
+  - id: S-06
+    name: "Pre-Treatment Cleanse"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-07
+    name: "Robotic E-Coat"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 58.0
+  - id: S-08
+    name: "Manual Seal Touchup"
+    zone: PAINT_SHOP
+    confidence_tier: DARK
+    nominal_cycle_time: 53.0
+  - id: S-09
+    name: "Top Coat Paint Booth"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 57.0
+  - id: S-10
+    name: "Paint Cure Oven"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 59.0
+
+  - id: S-11
+    name: "Harness Installation"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: INFERRED
+    nominal_cycle_time: 55.0
+  - id: S-12
+    name: "Cockpit Robot Mount"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-13
+    name: "Powertrain Decking"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 58.0
+  - id: S-14
+    name: "Wheel Fastening Robot"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 52.0
+  - id: S-15
+    name: "End of Line Dynamic Test"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 58.0
+
+buffers:
+  - id: B-01
+    upstream_station_id: S-01
+    downstream_station_id: S-02
+    capacity: 3
+  - id: B-02
+    upstream_station_id: S-02
+    downstream_station_id: S-03
+    capacity: 3
+  - id: B-03
+    upstream_station_id: S-03
+    downstream_station_id: S-04
+    capacity: 3
+  - id: B-04
+    upstream_station_id: S-04
+    downstream_station_id: S-05
+    capacity: 4
+  - id: B-05
+    upstream_station_id: S-05
+    downstream_station_id: S-06
+    capacity: 5
+  - id: B-06
+    upstream_station_id: S-06
+    downstream_station_id: S-07
+    capacity: 3
+  - id: B-07
+    upstream_station_id: S-07
+    downstream_station_id: S-08
+    capacity: 3
+  - id: B-08
+    upstream_station_id: S-08
+    downstream_station_id: S-09
+    capacity: 4
+  - id: B-09
+    upstream_station_id: S-09
+    downstream_station_id: S-10
+    capacity: 4
+  - id: B-10
+    upstream_station_id: S-10
+    downstream_station_id: S-11
+    capacity: 6
+  - id: B-11
+    upstream_station_id: S-11
+    downstream_station_id: S-12
+    capacity: 3
+  - id: B-12
+    upstream_station_id: S-12
+    downstream_station_id: S-13
+    capacity: 4
+  - id: B-13
+    upstream_station_id: S-13
+    downstream_station_id: S-14
+    capacity: 3
+  - id: B-14
+    upstream_station_id: S-14
+    downstream_station_id: S-15
+    capacity: 4

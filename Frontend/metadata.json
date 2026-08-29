@@ -1,0 +1,6 @@
+{
+  "name": "ShadowLine — Digital Twin",
+  "description": "Read-only digital twin of vehicle assembly line with forward predictive simulation, bottleneck forecasting, defect propagation tracking, and soft-sensor confidence tiers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,400 @@
+line_id: plant2_line_a
+name: "Plant 2 - Vehicle Assembly Line A"
+takt_time_seconds: 58.0
+target_jph: 62.0
+shifts_per_day: 2
+hours_per_shift: 8.0
+
+zones:
+  - id: BODY_SHOP
+    name: "Body Shop"
+    description: "Framing, spot welding, and sheet metal hemming"
+  - id: PAINT_SHOP
+    name: "Paint Shop"
+    description: "Pre-treatment, electro-coating, priming, top coat, and cure ovens"
+  - id: FINAL_ASSEMBLY
+    name: "Final Assembly"
+    description: "Trim, chassis marriage, cockpit, powertrain, doors, and end-of-line testing"
+
+stations:
+  # --- Body Shop (S-01 to S-12) ---
+  - id: S-01
+    name: "Floor Pan Loading"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 54.0
+  - id: S-02
+    name: "Underbody Crossmember Framing"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-03
+    name: "Robotic Spot Welding 1"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-04
+    name: "Manual Gusset Weld Reinforcement"
+    zone: BODY_SHOP
+    confidence_tier: DARK
+    nominal_cycle_time: 52.0
+  - id: S-05
+    name: "Robotic Spot Welding 2"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-06
+    name: "Side Panel Framing Left"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 54.0
+  - id: S-07
+    name: "Side Panel Framing Right"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 54.0
+  - id: S-08
+    name: "Roof Laser Brazing"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-09
+    name: "Body Respot Station"
+    zone: BODY_SHOP
+    confidence_tier: INFERRED
+    nominal_cycle_time: 53.0
+  - id: S-10
+    name: "Hood & Tailgate Hemming"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-11
+    name: "Body Dimension Optical Check"
+    zone: BODY_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 52.0
+  - id: S-12
+    name: "Body Shop Transfer & Buffer"
+    zone: BODY_SHOP
+    confidence_tier: INFERRED
+    nominal_cycle_time: 50.0
+
+  # --- Paint Shop (S-13 to S-24) ---
+  - id: S-13
+    name: "Phosphate Pre-Treatment Dip"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-14
+    name: "Cathodic E-Coat Immersion"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-15
+    name: "E-Coat Thermal Cure Oven"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 57.0
+  - id: S-16
+    name: "Underbody Sealer & PVC Spray"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 54.0
+  - id: S-17
+    name: "Manual Seam Mastic Touchup"
+    zone: PAINT_SHOP
+    confidence_tier: DARK
+    nominal_cycle_time: 53.0
+  - id: S-18
+    name: "Primer Surfacer Robotic Booth"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-19
+    name: "Primer Flash-off & Cure"
+    zone: PAINT_SHOP
+    confidence_tier: INFERRED
+    nominal_cycle_time: 56.0
+  - id: S-20
+    name: "Automated Base Coat Spray"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-21
+    name: "Clear Coat Robotic Bell Application"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-22
+    name: "Final Paint Bake Oven"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 57.0
+  - id: S-23
+    name: "Paint Quality Vision Tunnel"
+    zone: PAINT_SHOP
+    confidence_tier: MEASURED
+    nominal_cycle_time: 52.0
+  - id: S-24
+    name: "Paint Buffer & Cooling Line"
+    zone: PAINT_SHOP
+    confidence_tier: INFERRED
+    nominal_cycle_time: 51.0
+
+  # --- Final Assembly (S-25 to S-42) ---
+  - id: S-25
+    name: "Wire Harness Routing"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: INFERRED
+    nominal_cycle_time: 55.0
+  - id: S-26
+    name: "Brake Lines & Fuel/Battery Plumbing"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 54.0
+  - id: S-27
+    name: "Sound Deadening & Carpet Install"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: INFERRED
+    nominal_cycle_time: 53.0
+  - id: S-28
+    name: "HVAC Unit Manual Assembly"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: DARK
+    nominal_cycle_time: 55.0
+  - id: S-29
+    name: "Instrument Panel & Cockpit Robot"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-30
+    name: "Steering Column & Pedals"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: INFERRED
+    nominal_cycle_time: 54.0
+  - id: S-31
+    name: "Front & Rear Glass Robot Urethane"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-32
+    name: "Chassis & Powertrain Marriage"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 57.0
+  - id: S-33
+    name: "Front & Rear Suspension Torquing"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-34
+    name: "High Voltage Battery / Fuel Tank Install"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-35
+    name: "Exhaust System & Underbody Shields"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: INFERRED
+    nominal_cycle_time: 53.0
+  - id: S-36
+    name: "Seat Install & Seatbelt Torquing"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: DARK
+    nominal_cycle_time: 54.0
+  - id: S-37
+    name: "Door Mounting & Alignment"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 55.0
+  - id: S-38
+    name: "Wheel & Tire Automatic Bolt-Down"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 53.0
+  - id: S-39
+    name: "Fluid Fill & Vacuum Bleed"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 54.0
+  - id: S-40
+    name: "ECU Flash & Initial Engine Start"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: INFERRED
+    nominal_cycle_time: 55.0
+  - id: S-41
+    name: "Wheel Alignment & ADAS Calibration"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 56.0
+  - id: S-42
+    name: "End of Line Dyno & Final Inspection"
+    zone: FINAL_ASSEMBLY
+    confidence_tier: MEASURED
+    nominal_cycle_time: 57.0
+
+buffers:
+  - id: B-01
+    upstream_station_id: S-01
+    downstream_station_id: S-02
+    capacity: 3
+  - id: B-02
+    upstream_station_id: S-02
+    downstream_station_id: S-03
+    capacity: 3
+  - id: B-03
+    upstream_station_id: S-03
+    downstream_station_id: S-04
+    capacity: 4
+  - id: B-04
+    upstream_station_id: S-04
+    downstream_station_id: S-05
+    capacity: 3
+  - id: B-05
+    upstream_station_id: S-05
+    downstream_station_id: S-06
+    capacity: 3
+  - id: B-06
+    upstream_station_id: S-06
+    downstream_station_id: S-07
+    capacity: 2
+  - id: B-07
+    upstream_station_id: S-07
+    downstream_station_id: S-08
+    capacity: 3
+  - id: B-08
+    upstream_station_id: S-08
+    downstream_station_id: S-09
+    capacity: 4
+  - id: B-09
+    upstream_station_id: S-09
+    downstream_station_id: S-10
+    capacity: 3
+  - id: B-10
+    upstream_station_id: S-10
+    downstream_station_id: S-11
+    capacity: 3
+  - id: B-11
+    upstream_station_id: S-11
+    downstream_station_id: S-12
+    capacity: 5
+  - id: B-12
+    upstream_station_id: S-12
+    downstream_station_id: S-13
+    capacity: 8
+  - id: B-13
+    upstream_station_id: S-13
+    downstream_station_id: S-14
+    capacity: 3
+  - id: B-14
+    upstream_station_id: S-14
+    downstream_station_id: S-15
+    capacity: 4
+  - id: B-15
+    upstream_station_id: S-15
+    downstream_station_id: S-16
+    capacity: 3
+  - id: B-16
+    upstream_station_id: S-16
+    downstream_station_id: S-17
+    capacity: 3
+  - id: B-17
+    upstream_station_id: S-17
+    downstream_station_id: S-18
+    capacity: 4
+  - id: B-18
+    upstream_station_id: S-18
+    downstream_station_id: S-19
+    capacity: 3
+  - id: B-19
+    upstream_station_id: S-19
+    downstream_station_id: S-20
+    capacity: 4
+  - id: B-20
+    upstream_station_id: S-20
+    downstream_station_id: S-21
+    capacity: 3
+  - id: B-21
+    upstream_station_id: S-21
+    downstream_station_id: S-22
+    capacity: 4
+  - id: B-22
+    upstream_station_id: S-22
+    downstream_station_id: S-23
+    capacity: 4
+  - id: B-23
+    upstream_station_id: S-23
+    downstream_station_id: S-24
+    capacity: 6
+  - id: B-24
+    upstream_station_id: S-24
+    downstream_station_id: S-25
+    capacity: 8
+  - id: B-25
+    upstream_station_id: S-25
+    downstream_station_id: S-26
+    capacity: 3
+  - id: B-26
+    upstream_station_id: S-26
+    downstream_station_id: S-27
+    capacity: 3
+  - id: B-27
+    upstream_station_id: S-27
+    downstream_station_id: S-28
+    capacity: 3
+  - id: B-28
+    upstream_station_id: S-28
+    downstream_station_id: S-29
+    capacity: 3
+  - id: B-29
+    upstream_station_id: S-29
+    downstream_station_id: S-30
+    capacity: 4
+  - id: B-30
+    upstream_station_id: S-30
+    downstream_station_id: S-31
+    capacity: 3
+  - id: B-31
+    upstream_station_id: S-31
+    downstream_station_id: S-32
+    capacity: 5
+  - id: B-32
+    upstream_station_id: S-32
+    downstream_station_id: S-33
+    capacity: 3
+  - id: B-33
+    upstream_station_id: S-33
+    downstream_station_id: S-34
+    capacity: 3
+  - id: B-34
+    upstream_station_id: S-34
+    downstream_station_id: S-35
+    capacity: 3
+  - id: B-35
+    upstream_station_id: S-35
+    downstream_station_id: S-36
+    capacity: 3
+  - id: B-36
+    upstream_station_id: S-36
+    downstream_station_id: S-37
+    capacity: 4
+  - id: B-37
+    upstream_station_id: S-37
+    downstream_station_id: S-38
+    capacity: 3
+  - id: B-38
+    upstream_station_id: S-38
+    downstream_station_id: S-39
+    capacity: 3
+  - id: B-39
+    upstream_station_id: S-39
+    downstream_station_id: S-40
+    capacity: 3
+  - id: B-40
+    upstream_station_id: S-40
+    downstream_station_id: S-41
+    capacity: 4
+  - id: B-41
+    upstream_station_id: S-41
+    downstream_station_id: S-42
+    capacity: 4

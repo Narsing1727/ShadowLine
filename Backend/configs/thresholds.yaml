@@ -1,0 +1,25 @@
+alarm_budget:
+  max_alerts_per_operator_per_hour: 6
+  rolling_window_minutes: 60.0
+  chatter_suppression_cooldown_seconds: 300.0
+
+promotion_gate:
+  min_precision: 0.80
+  max_false_alarm_rate: 0.15
+  min_sample_size: 50
+  min_mean_lead_time_minutes: 15.0
+  max_brier_score: 0.20
+
+bottleneck:
+  active_period_threshold_ratio: 0.75
+  bottleneck_probability_threshold: 0.60
+  lead_time_warning_minutes: 30.0
+
+defect:
+  drift_significance_z_score: 2.5
+  propagation_confidence_threshold: 0.50
+  containment_risk_threshold: 0.70
+
+soft_sensor:
+  min_r2_score: 0.70
+  max_mae_seconds: 4.0
