@@ -37,8 +37,6 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontSize=24,
         leading=30,
         textColor=colors.HexColor('#000000'),
-        backColor=colors.HexColor('#A000FF'),
-        borderPadding=(30, 20, 20, 20),
         spaceAfter=12,
     )
 
@@ -48,18 +46,16 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontSize=10,
         leading=14,
         textColor=colors.HexColor('#FFFFFF'),
-        backColor=colors.HexColor('#A000FF'),
-        borderPadding=(0, 20, 20, 20),
         spaceAfter=10,
     )
 
     badge_style = ParagraphStyle(
-        'DocBadge',
+        'CoverBadge',
         fontName='Helvetica-Bold',
-        fontSize=7.5,
-        leading=9,
-        textColor=colors.HexColor('#000000'),
-        spaceAfter=5,
+        fontSize=10,
+        leading=14,
+        textColor=colors.HexColor('#FFFFFF'),
+        spaceAfter=8,
     )
 
     h1_style = ParagraphStyle(
@@ -143,7 +139,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     # ==================== 1. COVER TITLE BLOCK ====================
     cover_data = [
         [
-            Paragraph("ACCENTURE INNOVATION CHALLENGE 2026 · TECHNICAL SYSTEM MANUAL", badge_style)
+            Paragraph("ACCENTURE INNOVATION CHALLENGE 2026 - TECHNICAL SYSTEM MANUAL", badge_style)
         ],
         [
             Paragraph("ShadowLine: Predictive Digital Twin Architecture", title_style)

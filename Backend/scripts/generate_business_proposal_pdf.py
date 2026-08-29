@@ -37,8 +37,6 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontSize=24,
         leading=30,
         textColor=colors.HexColor('#000000'),
-        backColor=colors.HexColor('#A000FF'),
-        borderPadding=(30, 20, 20, 20),
         spaceAfter=12,
     )
 
@@ -48,18 +46,16 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontSize=10,
         leading=14,
         textColor=colors.HexColor('#FFFFFF'),
-        backColor=colors.HexColor('#A000FF'),
-        borderPadding=(0, 20, 20, 20),
         spaceAfter=10,
     )
 
     badge_style = ParagraphStyle(
         'CoverBadge',
         fontName='Helvetica-Bold',
-        fontSize=7.5,
-        leading=9,
+        fontSize=10,
+        leading=14,
         textColor=colors.HexColor('#FFFFFF'),
-        spaceAfter=6,
+        spaceAfter=8,
     )
 
     h1_style = ParagraphStyle(
@@ -143,7 +139,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
     # ==================== 1. EXECUTIVE COVER BANNER ====================
     cover_data = [
         [
-            Paragraph("ACCENTURE INNOVATION CHALLENGE 2026 · BUSINESS PROPOSAL", badge_style)
+            Paragraph("ACCENTURE INNOVATION CHALLENGE 2026 - BUSINESS PROPOSAL", badge_style)
         ],
         [
             Paragraph("ShadowLine: Enterprise Predictive Digital Twin", title_style)
