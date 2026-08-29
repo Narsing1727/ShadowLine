@@ -10,20 +10,11 @@ from reportlab.platypus import (
 from reportlab.pdfgen import canvas
 
 
-
 def draw_decorations(canvas, doc):
     canvas.saveState()
-    # Left Black Sidebar
-    canvas.setFillColor(colors.HexColor('#000000'))
-    canvas.rect(0, 0, 18, doc.pagesize[1], fill=1, stroke=0)
-    
-    # Bottom Black Bar
-    canvas.rect(0, 0, doc.pagesize[0], 18, fill=1, stroke=0)
-    
-    # Footer Text
     canvas.setFont("Helvetica", 8)
-    canvas.setFillColor(colors.HexColor('#FFFFFF'))
-    canvas.drawRightString(doc.pagesize[0] - 20, 5, f"Page {doc.page}")
+    canvas.setFillColor(colors.HexColor("#000000"))
+    canvas.drawRightString(doc.pagesize[0] - 54, 34, f"Page {doc.page}")
     canvas.restoreState()
 
 
@@ -41,21 +32,25 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
 
     # Typography & Styles
     title_style = ParagraphStyle(
-        'DocTitle',
+        'CoverTitle',
         fontName='Helvetica-Bold',
-        fontSize=18,
-        leading=22,
+        fontSize=24,
+        leading=30,
         textColor=colors.HexColor('#000000'),
+        backColor=colors.HexColor('#A000FF'),
+        borderPadding=(30, 20, 20, 20),
         spaceAfter=12,
     )
 
     subtitle_style = ParagraphStyle(
-        'DocSubtitle',
+        'CoverSubtitle',
         fontName='Helvetica',
-        fontSize=9,
-        leading=13,
-        textColor=colors.HexColor('#A000FF'),
-        spaceAfter=8,
+        fontSize=10,
+        leading=14,
+        textColor=colors.HexColor('#FFFFFF'),
+        backColor=colors.HexColor('#A000FF'),
+        borderPadding=(0, 20, 20, 20),
+        spaceAfter=10,
     )
 
     badge_style = ParagraphStyle(
@@ -70,13 +65,13 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     h1_style = ParagraphStyle(
         'SecHeading',
         fontName='Helvetica-Bold',
-        fontSize=11.5,
-        leading=15,
+        fontSize=13,
+        leading=18,
         textColor=colors.HexColor('#FFFFFF'),
         backColor=colors.HexColor('#A000FF'),
-        borderPadding=(4, 6, 4, 6),
-        spaceBefore=11,
-        spaceAfter=4,
+        borderPadding=(6, 10, 6, 10),
+        spaceBefore=14,
+        spaceAfter=8,
         keepWithNext=True,
     )
 
@@ -108,7 +103,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         leading=11.2,
         textColor=colors.HexColor('#FFFFFF'),
         backColor=colors.HexColor('#A000FF'),
-        borderPadding=(4, 6, 4, 6),
+        borderPadding=(6, 10, 6, 10),
     )
 
     callout_style = ParagraphStyle(
@@ -118,7 +113,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         leading=10.5,
         textColor=colors.HexColor('#FFFFFF'),
         backColor=colors.HexColor('#A000FF'),
-        borderPadding=(4, 6, 4, 6),
+        borderPadding=(6, 10, 6, 10),
     )
 
     table_header = ParagraphStyle(
@@ -126,7 +121,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontName='Helvetica-Bold',
         fontSize=7.2,
         leading=9,
-        textColor=colors.HexColor('#FFFFFF'),
+        textColor=colors.HexColor('#000000'),
     )
 
     table_cell = ParagraphStyle(
@@ -144,7 +139,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         leading=9,
         textColor=colors.HexColor('#FFFFFF'),
         backColor=colors.HexColor('#A000FF'),
-        borderPadding=(4, 6, 4, 6),
+        borderPadding=(6, 10, 6, 10),
     )
 
     story = []
@@ -170,7 +165,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
                 ]
             ], colWidths=[120, 125, 125, 134], style=[
                 ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-                ('TEXTCOLOR', (0,0), (-1,-1), colors.HexColor('#f8fafc')),
+                ('TEXTCOLOR', (0,0), (-1,-1), colors.HexColor('#F5EBFF')),
             ])
         ]
     ]
@@ -213,7 +208,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     ]
     kpi_table = Table(kpi_data, colWidths=[126, 126, 126, 126])
     kpi_table.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#f8fafc')),
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#F5EBFF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
         ('PADDING', (0,0), (-1,-1), 5),
@@ -265,7 +260,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 4),
     ]))
     story.append(topo_table)
@@ -302,7 +297,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     apm_card = Table(apm_card_data, colWidths=[504])
     apm_card.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
-        ('BACKGROUND', (0,1), (-1,1), colors.HexColor('#f8fafc')),
+        ('BACKGROUND', (0,1), (-1,1), colors.HexColor('#F5EBFF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('PADDING', (0,0), (-1,-1), 6),
     ]))
@@ -327,7 +322,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     soft_card = Table(soft_card_data, colWidths=[504])
     soft_card.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
-        ('BACKGROUND', (0,1), (-1,1), colors.HexColor('#f8fafc')),
+        ('BACKGROUND', (0,1), (-1,1), colors.HexColor('#F5EBFF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('PADDING', (0,0), (-1,-1), 6),
     ]))
@@ -353,7 +348,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     defect_card = Table(defect_card_data, colWidths=[504])
     defect_card.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
-        ('BACKGROUND', (0,1), (-1,1), colors.HexColor('#f8fafc')),
+        ('BACKGROUND', (0,1), (-1,1), colors.HexColor('#F5EBFF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('PADDING', (0,0), (-1,-1), 6),
     ]))
@@ -379,7 +374,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     calib_card = Table(calib_card_data, colWidths=[504])
     calib_card.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
-        ('BACKGROUND', (0,1), (-1,1), colors.HexColor('#f8fafc')),
+        ('BACKGROUND', (0,1), (-1,1), colors.HexColor('#F5EBFF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('PADDING', (0,0), (-1,-1), 6),
     ]))
@@ -427,7 +422,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 4.5),
     ]))
     story.append(sec_table)
@@ -473,7 +468,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 4.5),
     ]))
     story.append(gov_table)
@@ -573,7 +568,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 3.5),
     ]))
     story.append(screen_table)
@@ -615,7 +610,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 4.5),
     ]))
     story.append(disc_table)
@@ -666,7 +661,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 4),
     ]))
     story.append(verif_table)

@@ -10,20 +10,11 @@ from reportlab.platypus import (
 from reportlab.pdfgen import canvas
 
 
-
 def draw_decorations(canvas, doc):
     canvas.saveState()
-    # Left Black Sidebar
-    canvas.setFillColor(colors.HexColor('#000000'))
-    canvas.rect(0, 0, 18, doc.pagesize[1], fill=1, stroke=0)
-    
-    # Bottom Black Bar
-    canvas.rect(0, 0, doc.pagesize[0], 18, fill=1, stroke=0)
-    
-    # Footer Text
     canvas.setFont("Helvetica", 8)
-    canvas.setFillColor(colors.HexColor('#FFFFFF'))
-    canvas.drawRightString(doc.pagesize[0] - 20, 5, f"Page {doc.page}")
+    canvas.setFillColor(colors.HexColor("#000000"))
+    canvas.drawRightString(doc.pagesize[0] - 54, 34, f"Page {doc.page}")
     canvas.restoreState()
 
 
@@ -43,18 +34,22 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
     title_style = ParagraphStyle(
         'CoverTitle',
         fontName='Helvetica-Bold',
-        fontSize=20,
-        leading=24,
+        fontSize=24,
+        leading=30,
         textColor=colors.HexColor('#000000'),
+        backColor=colors.HexColor('#A000FF'),
+        borderPadding=(30, 20, 20, 20),
         spaceAfter=12,
     )
 
     subtitle_style = ParagraphStyle(
         'CoverSubtitle',
         fontName='Helvetica',
-        fontSize=9.5,
-        leading=13.5,
-        textColor=colors.HexColor('#A000FF'),
+        fontSize=10,
+        leading=14,
+        textColor=colors.HexColor('#FFFFFF'),
+        backColor=colors.HexColor('#A000FF'),
+        borderPadding=(0, 20, 20, 20),
         spaceAfter=10,
     )
 
@@ -70,13 +65,13 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
     h1_style = ParagraphStyle(
         'SecHeading',
         fontName='Helvetica-Bold',
-        fontSize=12,
-        leading=15,
+        fontSize=13,
+        leading=18,
         textColor=colors.HexColor('#FFFFFF'),
         backColor=colors.HexColor('#A000FF'),
-        borderPadding=(4, 6, 4, 6),
-        spaceBefore=12,
-        spaceAfter=5,
+        borderPadding=(6, 10, 6, 10),
+        spaceBefore=14,
+        spaceAfter=8,
         keepWithNext=True,
     )
 
@@ -108,7 +103,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         leading=11.5,
         textColor=colors.HexColor('#FFFFFF'),
         backColor=colors.HexColor('#A000FF'),
-        borderPadding=(4, 6, 4, 6),
+        borderPadding=(6, 10, 6, 10),
     )
 
     callout_style = ParagraphStyle(
@@ -118,7 +113,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         leading=10.5,
         textColor=colors.HexColor('#FFFFFF'),
         backColor=colors.HexColor('#A000FF'),
-        borderPadding=(4, 6, 4, 6),
+        borderPadding=(6, 10, 6, 10),
     )
 
     table_header = ParagraphStyle(
@@ -126,7 +121,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontName='Helvetica-Bold',
         fontSize=7.5,
         leading=9.5,
-        textColor=colors.HexColor('#FFFFFF'),
+        textColor=colors.HexColor('#000000'),
     )
 
     table_cell = ParagraphStyle(
@@ -144,7 +139,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         leading=9.5,
         textColor=colors.HexColor('#FFFFFF'),
         backColor=colors.HexColor('#A000FF'),
-        borderPadding=(4, 6, 4, 6),
+        borderPadding=(6, 10, 6, 10),
     )
 
     story = []
@@ -170,7 +165,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
                 ]
             ], colWidths=[120, 110, 130, 144], style=[
                 ('VALIGN', (0,0), (-1,-1), 'MIDDLE'),
-                ('TEXTCOLOR', (0,0), (-1,-1), colors.HexColor('#f8fafc')),
+                ('TEXTCOLOR', (0,0), (-1,-1), colors.HexColor('#F5EBFF')),
             ])
         ]
     ]
@@ -213,7 +208,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
     ]
     kpi_table = Table(kpi_data, colWidths=[126, 126, 126, 126])
     kpi_table.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#f8fafc')),
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#F5EBFF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
         ('PADDING', (0,0), (-1,-1), 6),
@@ -261,7 +256,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(val_table)
@@ -307,7 +302,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(stake_table)
@@ -450,7 +445,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(gtm_table)
@@ -492,7 +487,7 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         ('BACKGROUND', (0,0), (-1,0), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
-        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#FFFFFF'), colors.HexColor('#F5EBFF')]),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [colors.HexColor('#ffffff'), colors.HexColor('#F5EBFF')]),
         ('PADDING', (0,0), (-1,-1), 5),
     ]))
     story.append(road_table)
