@@ -112,8 +112,6 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         fontSize=7.5,
         leading=10.5,
         textColor=colors.HexColor('#FFFFFF'),
-        backColor=colors.HexColor('#A000FF'),
-        borderPadding=(6, 10, 6, 10),
     )
 
     table_header = ParagraphStyle(
@@ -198,15 +196,15 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     # Metric KPI Banner
     kpi_data = [
         [
-            Paragraph("<b>4.0 Hours</b><br/><font color='#4f46e5' size='6'>FORECAST HORIZON</font><br/><font color='#16a34a' size='5.5'>200 Monte Carlo Paths</font>", callout_style),
-            Paragraph("<b>7.51 Seconds</b><br/><font color='#4f46e5' size='6'>COMPUTE LATENCY</font><br/><font color='#16a34a' size='5.5'>Real-Time 60s Cycle</font>", callout_style),
-            Paragraph("<b>&le; 6 Alerts / hr</b><br/><font color='#4f46e5' size='6'>ALARM BUDGET</font><br/><font color='#16a34a' size='5.5'>EEMUA 191 Compliant</font>", callout_style),
-            Paragraph("<b>88.7% Precision</b><br/><font color='#4f46e5' size='6'>PROMOTION GATE</font><br/><font color='#16a34a' size='5.5'>Certified for Live Alerting</font>", callout_style),
+            Paragraph("<b>4.0 Hours</b><br/><font color='#FFE600' size='6'>FORECAST HORIZON</font><br/><font color='#FFFFFF' size='5.5'>200 Monte Carlo Paths</font>", callout_style),
+            Paragraph("<b>7.51 Seconds</b><br/><font color='#FFE600' size='6'>COMPUTE LATENCY</font><br/><font color='#FFFFFF' size='5.5'>Real-Time 60s Cycle</font>", callout_style),
+            Paragraph("<b>&le; 6 Alerts / hr</b><br/><font color='#FFE600' size='6'>ALARM BUDGET</font><br/><font color='#FFFFFF' size='5.5'>EEMUA 191 Compliant</font>", callout_style),
+            Paragraph("<b>88.7% Precision</b><br/><font color='#FFE600' size='6'>PROMOTION GATE</font><br/><font color='#FFFFFF' size='5.5'>Certified for Live Alerting</font>", callout_style),
         ]
     ]
     kpi_table = Table(kpi_data, colWidths=[126, 126, 126, 126])
     kpi_table.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#F5EBFF')),
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
         ('PADDING', (0,0), (-1,-1), 5),

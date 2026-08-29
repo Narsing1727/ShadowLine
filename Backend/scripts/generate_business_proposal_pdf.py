@@ -112,8 +112,6 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
         fontSize=7.5,
         leading=10.5,
         textColor=colors.HexColor('#FFFFFF'),
-        backColor=colors.HexColor('#A000FF'),
-        borderPadding=(6, 10, 6, 10),
     )
 
     table_header = ParagraphStyle(
@@ -198,15 +196,15 @@ def build_business_proposal_pdf(output_path: str = "ShadowLine_Detailed_Business
     # KPI Metric Cards
     kpi_data = [
         [
-            Paragraph("<b>$1.66M / yr</b><br/><font color='#4f46e5' size='6.5'>NET ANNUAL SAVINGS</font><br/><font color='#16a34a' size='6'>Per 42-Station Assembly Line</font>", callout_style),
-            Paragraph("<b>2.32 Months</b><br/><font color='#4f46e5' size='6.5'>CAPITAL PAYBACK</font><br/><font color='#16a34a' size='6'>~70 Production Days</font>", callout_style),
-            Paragraph("<b>418%</b><br/><font color='#4f46e5' size='6.5'>3-YEAR PROJECT ROI</font><br/><font color='#16a34a' size='6'>EBITDA Contribution</font>", callout_style),
-            Paragraph("<b>&le; 6 / hr</b><br/><font color='#4f46e5' size='6.5'>EEMUA 191 BUDGET</font><br/><font color='#16a34a' size='6'>Zero Alarm Fatigue</font>", callout_style),
+            Paragraph("<b>$1.66M / yr</b><br/><font color='#FFE600' size='6.5'>NET ANNUAL SAVINGS</font><br/><font color='#FFFFFF' size='6'>Per 42-Station Assembly Line</font>", callout_style),
+            Paragraph("<b>2.32 Months</b><br/><font color='#FFE600' size='6.5'>CAPITAL PAYBACK</font><br/><font color='#FFFFFF' size='6'>~70 Production Days</font>", callout_style),
+            Paragraph("<b>418%</b><br/><font color='#FFE600' size='6.5'>3-YEAR PROJECT ROI</font><br/><font color='#FFFFFF' size='6'>EBITDA Contribution</font>", callout_style),
+            Paragraph("<b>&le; 6 / hr</b><br/><font color='#FFE600' size='6.5'>EEMUA 191 BUDGET</font><br/><font color='#FFFFFF' size='6'>Zero Alarm Fatigue</font>", callout_style),
         ]
     ]
     kpi_table = Table(kpi_data, colWidths=[126, 126, 126, 126])
     kpi_table.setStyle(TableStyle([
-        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#F5EBFF')),
+        ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#A000FF')),
         ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#000000')),
         ('INNERGRID', (0,0), (-1,-1), 0.5, colors.HexColor('#000000')),
         ('PADDING', (0,0), (-1,-1), 6),
