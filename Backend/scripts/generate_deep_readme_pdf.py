@@ -663,7 +663,7 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
     story.append(Paragraph("9. Technology Stack & Operational Quickstart Guide", h1_style))
 
     tech_p = Paragraph(
-        "<b>Core Software Stack:</b> Python 3.11+ · FastAPI (REST & WebSockets) · SimPy (Discrete-Event Forward Simulation) · NumPy · scikit-learn (Ridge Virtual Metrology) · NetworkX (Defect Propagation Graph) · SQLAlchemy 2.0 (SQLite/PostgreSQL WAL) · React 19 · TypeScript · Tailwind CSS · Recharts.",
+        "<b>Core Software Stack:</b> Python 3.11+ • FastAPI (REST & WebSockets) • SimPy (Discrete-Event Forward Simulation) • NumPy • scikit-learn (Ridge Virtual Metrology) • NetworkX (Defect Propagation Graph) • SQLAlchemy 2.0 (SQLite/PostgreSQL WAL) • React 19 • TypeScript • Tailwind CSS • Recharts.",
         body_style
     )
     story.append(tech_p)
@@ -674,12 +674,12 @@ def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
         "2. <b>Frontend Interactive UI:</b> cd Frontend &amp;&amp; npm run dev (React dashboard on http://localhost:3000)<br/>"
         "3. <b>Automated Verification Suite:</b> pytest -v (Executes complete 15-test suite)<br/>"
         "4. <b>Shift Replay Simulation:</b> python scripts/replay_shift.py (Replays 6,177 events through the twin)",
-        callout_style
+        body_style
     )
     q_table = Table([[quickstart_p]], colWidths=[504])
     q_table.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), colors.HexColor('#FFFFFF')),
-        ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#86efac')),
+        ('BOX', (0,0), (-1,-1), 1, colors.HexColor('#A000FF')),
         ('PADDING', (0,0), (-1,-1), 6),
     ]))
     story.append(q_table)
