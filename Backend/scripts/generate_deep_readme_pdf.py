@@ -18,7 +18,7 @@ def draw_decorations(canvas, doc):
     canvas.restoreState()
 
 
-def build_deep_readme_pdf(output_path: str = "ShadowLine_README_Document.pdf"):
+def build_deep_readme_pdf(output_path: str = "Upstream_ShadowLine_README.pdf"):
     doc = SimpleDocTemplate(
         output_path,
         pagesize=letter,
